@@ -6,6 +6,18 @@ body {
   font-family: "Inter";
   font-style: normal;
 }
+.carousel-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1900 / 870; /* ratio voulu */
+  overflow: hidden;
+}
+
+.carousel-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .top-header {
   background-color: white;
   position: sticky;
@@ -48,6 +60,10 @@ body {
   padding-inline: 100px;
   padding-block: 100px;
   position: relative;
+}
+.picture.left img {
+  width: 100%;
+  height: auto;
 }
 
 .picture.left::before {
@@ -199,6 +215,13 @@ body {
 #contact .container {
   display: flex;
 }
+
+.picture.right img {
+  width: 100%;
+  height: 418px;
+  object-fit: cover;
+}
+
 .picture.right::before {
   content: " ";
   background-color: #beb45a;
