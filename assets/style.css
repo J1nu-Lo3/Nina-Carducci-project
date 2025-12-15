@@ -8,7 +8,7 @@ body {
 }
 .carousel-img-wrapper {
   width: 100%;
-  aspect-ratio: 1900 / 870; /* ratio voulu */
+  aspect-ratio: 1900 / 870;
   overflow: hidden;
 }
 
