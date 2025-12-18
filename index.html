@@ -6,8 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Nina Carducci, photographe professionnelle en Île-de-France."
+      content="Nina Carducci, photographe professionnelle."
     />
+    <meta
+      property="og:title"
+      content="Nina Carducci - Photographe professionnel"
+    />
+    <meta
+      property="og:description"
+      content="Photographe professionnelle spécialisée en mariages, portraits, concerts et entreprises."
+    />
+    <meta
+      property="og:image"
+      content="https://www.xoxoninacarducci.com/assets/images/nina.webp"
+    />
+    <meta property="og:url" content="https://www.xoxoninacarducci.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
     <link rel="stylesheet" href="./assets/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="./assets/style.css" />
     <link
@@ -31,10 +46,44 @@
     ></script>
     <script src="./assets/maugallery.js" defer></script>
     <script src="./assets/scripts.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Photographer",
+        "name": "Nina Carducci",
+        "image": "https://www.xoxoninacarducci.com/assets/images/nina.webp",
+        "url": "https://www.xoxoninacarducci.com",
+        "telephone": "+33556677889",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "68 avenue Alsace-Lorraine",
+          "postalCode": "33200",
+          "addressLocality": "Bordeaux",
+          "addressCountry": "FR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "10:00",
+            "closes": "19:00"
+          }
+        ],
+        "sameAs": ["https://www.instagram.com/ninacarducci.photo/"],
+        "description": "Nina Carducci est une photographe professionnelle, spécialisée en mariages, portraits, concerts et photographie d’entreprise."
+      }
+    </script>
   </head>
   <body>
     <div class="top-header">
-      <h3 class="name">Nina Carducci</h3>
+      <h1 class="name">Nina Carducci<span>Photographe</span></h1>
       <div class="nav">
         <ul>
           <li><a href="#about">À propos</a></li>
@@ -145,7 +194,7 @@
           />
         </div>
         <div id="about-me">
-          <h3 class="about-me__title">A propos de moi</h3>
+          <h2 class="about-me__title">A propos de moi</h2>
           <p class="about-me__introduction">
             Devenir photographe était pour moi une évidence. Comme si j’y étais
             prédestiné. Saisir un moment, une émotion, une situation, un
@@ -228,13 +277,13 @@
         <div class="quote">
           <figure>
             <blockquote>
-              <h1 class="quote__text">
+              <p class="quote__text">
                 Un portrait n’est pas une ressemblance. Dès lors qu’une émotion
                 ou qu’un fait est traduit en photo, il cesse d’être un fait pour
                 devenir une opinion. L’inexactitude n’existe pas en
                 photographie. Toutes les photos sont exactes. Aucune d’elles
                 n’est la vérité.
-              </h1>
+              </p>
             </blockquote>
             <figcaption class="quote__author">- Richard Avedon</figcaption>
           </figure>
@@ -289,11 +338,11 @@
       <div class="quote">
         <figure>
           <blockquote>
-            <h1 class="quote__text">
+            <p class="quote__text">
               De manière inconsciente, je crois, je guette un regard, une
               expression, des traits ou une nostalgie capable de résumer ou plus
               exactement de révéler une vie
-            </h1>
+            </p>
           </blockquote>
           <figcaption class="quote__author">- Richard Avedon</figcaption>
         </figure>
