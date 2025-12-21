@@ -105,7 +105,10 @@ body {
   width: 80%;
   font-size: 14px;
 }
-
+.tags-bar {
+  display: flex;
+  justify-content: center;
+}
 #gallery {
   /*	min-height: 100vh; */
 }
