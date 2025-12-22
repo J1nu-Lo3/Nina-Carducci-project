@@ -13,6 +13,7 @@ function initGallery() {
 
   buildLayout();
   buildFilters();
+  initLightbox();
 }
 
 /* layout gallery*/
@@ -75,7 +76,7 @@ function createFilterButton(label, tag, active = false) {
   li.appendChild(span);
   return li;
 }
-// button active
+/* button active */
 function setActiveFilter(activeBtn) {
   document
     .querySelectorAll(".tags-bar .nav-link")
@@ -93,4 +94,67 @@ function filterGallery(tag) {
     col.style.display =
       tag === "all" || img.dataset.galleryTag === tag ? "" : "none";
   });
+}
+
+/* mondale lightbox */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-image");
+const btnPrev = document.querySelector(".lightbox-prev");
+const btnNext = document.querySelector(".lightbox-next");
+const btnClose = document.querySelector(".lightbox-close");
+
+let currentIndex = 0;
+
+/* ouvrir la modale */
+function initLightbox() {
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      openLightbox(index);
+    });
+  });
+}
+
+function openLightbox(index) {
+  const visibleImages = getVisibleImages();
+  currentIndex = visibleImages.indexOf(images[index]);
+
+  updateLightboxImage();
+  lightbox.classList.remove("hidden");
+}
+
+/* fermer la modale */
+btnClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+function closeLightbox() {
+  lightbox.classList.add("hidden");
+}
+
+/* navigation entre image */
+btnPrev.addEventListener("click", () => navigate(-1));
+btnNext.addEventListener("click", () => navigate(1));
+
+function navigate(direction) {
+  const visibleImages = getVisibleImages();
+  currentIndex =
+    (currentIndex + direction + visibleImages.length) % visibleImages.length;
+
+  updateLightboxImage();
+}
+
+function updateLightboxImage() {
+  const visibleImages = getVisibleImages();
+  const img = visibleImages[currentIndex];
+
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+}
+
+// images selon filtre actif
+function getVisibleImages() {
+  return images.filter(
+    (img) => activeTag === "all" || img.dataset.galleryTag === activeTag
+  );
 }
