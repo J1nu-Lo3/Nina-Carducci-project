@@ -17,24 +17,16 @@ function initGallery() {
 }
 
 /* layout gallery*/
-
 function buildLayout() {
-  const row = document.createElement("div");
-  row.className = "gallery-items-row row";
+  gallery.innerHTML = "";
+  gallery.style.display = "grid";
 
   images.forEach((img) => {
-    img.classList.add("img-fluid");
+    img.classList.remove("img-fluid");
+    img.classList.add("gallery-item");
 
-    const col = document.createElement("div");
-    col.className = "item-column mb-4 col-12 col-sm-6 col-md-4";
-
-    col.appendChild(img);
-    row.appendChild(col);
+    gallery.appendChild(img);
   });
-
-  gallery.innerHTML = "";
-  gallery.appendChild(row);
-  gallery.style.display = "block";
 }
 
 /* filtres */
@@ -89,10 +81,8 @@ function filterGallery(tag) {
   activeTag = tag;
 
   images.forEach((img) => {
-    const col = img.closest(".item-column");
-
-    col.style.display =
-      tag === "all" || img.dataset.galleryTag === tag ? "" : "none";
+    const match = tag === "all" || img.dataset.galleryTag === tag;
+    img.style.display = match ? "block" : "none";
   });
 }
 
@@ -123,9 +113,12 @@ function openLightbox(index) {
 }
 
 /* fermer la modale */
-btnClose.addEventListener("click", closeLightbox);
-lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) closeLightbox();
+lightboxImg.addEventListener("click", (e) => e.stopPropagation());
+btnPrev.addEventListener("click", (e) => e.stopPropagation());
+btnNext.addEventListener("click", (e) => e.stopPropagation());
+btnClose.addEventListener("click", (e) => {
+  e.stopPropagation();
+  closeLightbox();
 });
 
 function closeLightbox() {
